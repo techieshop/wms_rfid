@@ -67,7 +67,7 @@ namespace THOK.Wms.SignalR.Common
             //主库区未满盘件烟移到件烟区
             string[] areaTypes = new string[] { "1" };
             var ss = storages.Where(s => areaTypes.Any(a => a == s.Cell.Area.AreaType)
-                                         && ((s.Quantity - s.OutFrozenQuantity) / s.Product.Unit.Count) >= 1)
+                                         && ((s.Quantity - s.OutFrozenQuantity) / s.Product.Unit.Count) >= 1) 
                              .ToArray();
 
             if (Locker.Lock(ss))
@@ -287,7 +287,7 @@ namespace THOK.Wms.SignalR.Common
             //主库区未满盘件烟移到件烟区
             string[] areaTypes = new string[] { "1" };
             var ss = storages.Where(s => areaTypes.Any(a => a == s.Cell.Area.AreaType)
-                                            && ((s.Quantity - s.OutFrozenQuantity) / s.Product.Unit.Count) > 1);
+                                            && ((s.Quantity - s.OutFrozenQuantity) / s.Product.Unit.Count) >= 1);
             if (ss.Count() > 0 && storageQuery.Where(s=>s.Cell.Area.AreaType == "2").Count() > 0) { return true; }
 
             //主库区件烟库区条烟移到条烟区
