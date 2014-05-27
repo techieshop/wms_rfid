@@ -264,7 +264,7 @@ namespace THOK.Wms.SignalR.Common
         {
             try
             {
-                cell.LockTag = string.Empty;
+                cell.LockTag = null;
                 CellRepository.SaveChanges();
             }
             catch (Exception)
@@ -329,7 +329,7 @@ namespace THOK.Wms.SignalR.Common
         {
             try
             {
-                cells.AsParallel().ForAll(c => c.LockTag = string.Empty);
+                cells.AsParallel().ForAll(c => c.LockTag = null);
                 CellRepository.SaveChanges();
             }
             catch (Exception)
