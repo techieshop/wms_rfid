@@ -28,3 +28,4 @@ _ReSharper*/
 
 Packages
 
+*.DS_Store
